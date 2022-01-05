@@ -9,13 +9,11 @@ const webpConverter = require("./lib/webpconverter.js")
 const bahasa_planet = require('./lib/bahasa_planet')
 const WSF = require("wa-sticker-formatter");
 const { MessageType, Mimetype } = require("@adiwajshing/baileys");
-
 const inPdfInput = [];
 const questionAnswer = {};
 const bufferImagesForPdf = {};
 const quotesList = JSON.parse(fs.readFileSync("lib/quotes.json", "utf-8"));
 const factList = JSON.parse(fs.readFileSync("lib/fact.json", "utf-8"));
-
 module.exports = async (conn, message) => {
 	const senderNumber = message.key.remoteJid;
 	const imageMessage = message.message.imageMessage;
@@ -82,60 +80,141 @@ module.exports = async (conn, message) => {
 
 	switch (command) {
 		case "!help":
+		case "!menu":
 		{
-			const text = Halo kak selamat datang di *${conn.user.name}*!
+const text =
+`「 ❏ 𝗜𝗡𝗙𝗢 𝗕𝗢𝗧 」
+ꔹ 𝑵𝒂𝒎𝒂 : *${conn.user.name}*!
+ꔹ 𝑶𝒘𝒏𝒆𝒓 : Radja Aditya Chandra
+ꔹ 𝑴𝒐𝒅𝒆 : SELF BOT
 
-- kirim *!help* 𝚞𝚗𝚝𝚞𝚔 𝚖𝚎𝚕𝚒𝚑𝚊𝚝 𝚍𝚊𝚏𝚝𝚊𝚛 𝚙𝚎𝚛𝚒𝚗𝚝𝚊𝚑 𝚍𝚊𝚛𝚒 𝚋𝚘𝚝 𝚒𝚗𝚒
+「 ❏ 𝗜𝗡𝗙𝗢 𝗔𝗨𝗧𝗛𝗢𝗥 」
+ꔹ 𝑨𝒖𝒕𝒉𝒐𝒓 : Radja Aditya Chandra
+ꔹ 𝑵𝒐𝒎𝒐𝒓 : wa.me/6281262163214
+ꔹ 𝑾𝒆𝒃𝒔𝒊𝒕𝒆 : https://www.indocan.asia
+ꔹ 𝑰𝒏𝒔𝒕𝒂𝒈𝒓𝒂𝒎: @itschandra_28
 
-- 𝚔𝚒𝚛𝚒𝚖 *!contact* 𝚞𝚗𝚝𝚞𝚔 𝚖𝚎𝚗𝚐𝚑𝚞𝚋𝚞𝚗𝚐𝚒 𝚙𝚎𝚖𝚋𝚞𝚊𝚝 𝚋𝚘𝚝
+━━━━━━━━━━━━━━━━━━━━━━
+━━━━━「 𝑨𝑳𝑳 𝑴𝑬𝑵𝑼 」━━━━━
+━━━━━━━━━━━━━━━━━━━━━━
 
-- kirim gambar dengan caption *!sticker* untuk membuat sticker
-
-- 𝚔𝚒𝚛𝚒𝚖 𝚐𝚊𝚖𝚋𝚊𝚛 𝚍𝚎𝚗𝚐𝚊𝚗 𝚌𝚊𝚙𝚝𝚒𝚘𝚗 *!stickernobg* 𝚞𝚗𝚝𝚞𝚔 𝚖𝚎𝚖𝚋𝚞𝚊𝚝 𝚜𝚝𝚒𝚔𝚎𝚛 𝚝𝚊𝚖𝚙𝚊 𝚋𝚊𝚌𝚔𝚐𝚛𝚘𝚞𝚗𝚍
-
-- 𝚔𝚒𝚛𝚒𝚖 *!pdf* 𝚞𝚗𝚝𝚞𝚔 𝚖𝚎𝚖𝚋𝚞𝚊𝚝 𝚙𝚍𝚏 𝚍𝚊𝚛𝚒 𝚐𝚊𝚖𝚋𝚊𝚛
-
-- 𝚛𝚎𝚙𝚕𝚢 𝚜𝚝𝚒𝚌𝚔𝚎𝚛 𝚍𝚎𝚗𝚐𝚊𝚗 𝚌𝚊𝚙𝚝𝚒𝚘𝚗 *!toimg* 𝚞𝚗𝚝𝚞𝚔 𝚖𝚎𝚖𝚋𝚞𝚊𝚝 𝚜𝚝𝚒𝚔𝚎𝚛 𝚔𝚎 𝚐𝚊𝚖𝚋𝚊𝚛
-
-- 𝚛𝚎𝚙𝚕𝚢 𝚜𝚝𝚒𝚌𝚔𝚎𝚛 𝚋𝚎𝚛𝚐𝚎𝚛𝚊𝚔 𝚍𝚎𝚗𝚐𝚊𝚗 𝚌𝚊𝚙𝚝𝚒𝚘𝚗 *!togif* 𝚞𝚗𝚝𝚞𝚔 𝚖𝚎𝚖𝚋𝚞𝚊𝚝 𝚜𝚝𝚒𝚌𝚔𝚎𝚛 𝚔𝚎 𝚐𝚒𝚏
-
-- 𝚔𝚒𝚛𝚒𝚖 *!ᴛᴇxᴛsᴛɪᴄᴋᴇʀ [ᴛᴇxᴛ ᴋᴀᴍᴜ]* 𝚞𝚗𝚝𝚞𝚔 𝚖𝚎𝚖𝚋𝚞𝚊𝚝 𝚝𝚎𝚡𝚝 𝚜𝚝𝚒𝚌𝚔𝚎𝚛
-  contoh: !𝚝𝚎𝚡𝚝𝚜𝚝𝚒𝚌𝚔𝚎𝚛 𝚕𝚘𝚟𝚎 𝚢𝚘𝚞
-
-- 𝚔𝚒𝚛𝚒𝚖 *!gifttextsticker [ᴛᴇxᴛ ᴋᴀᴍᴜ]* 𝚞𝚗𝚝𝚞𝚔 𝚖𝚎𝚖𝚋𝚞𝚊𝚝 𝚝𝚎𝚡𝚝 𝚜𝚝𝚒𝚌𝚔𝚎𝚛 𝚓𝚎𝚍𝚊𝚐 𝚓𝚎𝚍𝚞𝚐
-  𝚌𝚘𝚗𝚝𝚘𝚑: !gifttextsticker 𝚕𝚘𝚟𝚎 𝚢𝚘𝚞
-
-- 𝚔𝚒𝚛𝚒𝚖 𝚟𝚒𝚍𝚎𝚘 𝚍𝚎𝚗𝚐𝚊𝚗 𝚌𝚊𝚙𝚝𝚒𝚘𝚗 *!ɢɪғᴛsᴛɪᴄᴋᴇʀ* 𝚞𝚗𝚝𝚞𝚔 𝚖𝚎𝚖𝚋𝚞𝚊𝚝 𝚜𝚝𝚒𝚌𝚔𝚎𝚛 𝚋𝚎𝚛𝚐𝚎𝚛𝚊𝚔
-
-- 𝚔𝚒𝚛𝚒𝚖 *!ᴡʀɪᴛᴇ [ᴍᴀsᴜᴋᴀɴ ᴛᴜʟɪsᴀɴ ᴋᴀᴍᴜ]* 𝚞𝚗𝚝𝚞𝚔 𝚖𝚎𝚗𝚞𝚕𝚒𝚜 𝚔𝚎 𝚔𝚎𝚛𝚝𝚊𝚜
-  contoh: !𝚠𝚛𝚒𝚝𝚎 𝚒𝚗𝚒 𝚝𝚞𝚕𝚒𝚜𝚊𝚗𝚔𝚞
-
-- 𝚔𝚒𝚛𝚒𝚖 *!brainly [pertanyaan kamu]* 𝚞𝚗𝚝𝚞𝚔 𝚖𝚎𝚗𝚌𝚊𝚛𝚒 𝚙𝚎𝚛𝚝𝚊𝚊𝚗 𝚍𝚊𝚗 𝚓𝚊𝚊𝚊𝚋𝚊𝚗 𝚍𝚒 𝚋𝚛𝚊𝚒𝚗𝚕𝚢
-  𝚌𝚘𝚗𝚝𝚘𝚑: !brainly 𝚊𝚙𝚊 𝚒𝚝𝚞 𝚒 𝚕𝚘𝚟𝚎 𝚢𝚘𝚞
-
-- *!quotes* 𝚞𝚗𝚝𝚞𝚔 𝚖𝚎𝚗𝚍𝚊𝚙𝚊𝚝𝚔𝚊𝚗 𝚚𝚞𝚘𝚝𝚎𝚜
-
-- *!randomfact* 𝚞𝚗𝚝𝚞𝚔 𝚖𝚎𝚗𝚍𝚊𝚙𝚊𝚝𝚔𝚊𝚗 𝚙𝚎𝚗𝚐𝚎𝚝𝚊𝚑𝚞𝚊𝚗 𝚊𝚌𝚊𝚔
-
-- *!wikipedia [query]* 𝚞𝚗𝚝𝚞𝚔 𝚖𝚎𝚗𝚌𝚊𝚛𝚒 𝚊𝚛𝚝𝚒𝚔𝚎𝚛 𝚊𝚗𝚍𝚊
-   𝚌𝚘𝚗𝚝𝚘𝚑: !wikipedia 𝚕𝚘𝚟𝚎 𝚢𝚘𝚞
-
-- *!math* 𝚞𝚗𝚝𝚞𝚔 𝚖𝚎𝚗𝚐𝚎𝚛𝚓𝚔𝚊𝚗 𝚜𝚘𝚊𝚕 𝚖𝚊𝚝𝚎𝚖𝚊𝚝𝚒𝚔𝚊
-
-- *!bplanet [alias] [text]*
-   𝚌𝚘𝚗𝚝𝚘𝚑: !𝚒𝚋𝚙𝚕𝚊𝚗𝚎𝚝 𝚐 𝚔𝚊𝚖𝚞 𝚕𝚊𝚐𝚒 𝚗𝚐𝚊𝚙𝚊𝚒𝚗?
-
-- 𝚔𝚒𝚛𝚒𝚖 𝚐𝚊𝚖𝚋𝚊𝚛 𝚍𝚎𝚗𝚐𝚊𝚗 𝚌𝚊𝚙𝚝𝚒𝚘𝚗 *!ocr* 𝚞𝚗𝚝𝚞𝚔 𝚖𝚎𝚗𝚍𝚊𝚙𝚊𝚝𝚔𝚊𝚗 𝚝𝚎𝚡𝚝 𝚍𝚊𝚛𝚒 𝚐𝚊𝚖𝚋𝚊𝚛
-
-𝙱𝚘𝚝 𝚂𝚎𝚗𝚜𝚒𝚝𝚒𝚏 𝚝𝚎𝚛𝚑𝚊𝚍𝚊𝚙 𝚜𝚒𝚖𝚋𝚘𝚕 / 𝚜𝚙𝚊𝚜𝚒 / 𝚑𝚞𝚛𝚞𝚏 𝚔𝚎𝚌𝚒𝚕 / 𝚑𝚞𝚛𝚞𝚏 𝚋𝚎𝚜𝚊𝚎. 𝚓𝚊𝚍𝚒, 𝚋𝚘𝚝 𝚝𝚒𝚍𝚊𝚔 𝚊𝚔𝚊𝚗 𝚖𝚎𝚖𝚋𝚊𝚕𝚊𝚜 𝚔𝚊𝚕𝚊𝚞 𝚊𝚍𝚊 𝚝𝚞𝚕𝚒𝚜𝚊𝚗 𝚢𝚊𝚗𝚐 𝚜𝚊𝚕𝚊𝚑 !
-
-𝙱𝚘𝚝 𝚒𝚗𝚒 𝚘𝚙𝚎𝚗 𝚜𝚘𝚞𝚛𝚌𝚎𝚜 𝚕𝚘𝚑! 𝚔𝚊𝚔🐱 𝚋𝚒𝚜𝚊 𝚌𝚍𝚔 𝚍𝚒 https://github.com/itschandra02/radja-bot (jika ingin mengedit mohon untuk tidak hilangankan link ini));
+● !menu
+● !bantuan
+● !sticker <reply image>
+● !contact 
+● !stickernobg {erorr}
+● !pdf 
+● !toimg
+● !togif
+● !gifsticker
+● !textsticker {erorr}
+● !giftextsticker
+● !write
+● !brainly
+● !quotes
+● !randomfact
+● !gtts [kode bahasa] [text]
+● !wikipedia [query]
+● !math
+● !donasi
+● !bplanet
+● !ocr
+● !info`
 
 			conn.sendMessage(senderNumber, text, MessageType.text, { quoted: message });
 			break;
 		}
 
-		case "!contact":
+        case "!bantuan":
+    {    
+            const text = `kirim *!help/!menu* untuk melihat daftar perintah dari bot ini
+
+- kirim *!contact* untuk menghubungi pembuat bot
+
+- kirim gambar dengan caption *!sticker* untuk membuat sticker
+
+- kirim gambar dengan caption *!stickernobg* untuk membuat sticker tanpa background
+
+- kirim *!pdf* untuk membuat pdf dari gambar
+
+- reply sticker dengan caption *!toimg* untuk membuat sticker ke gambar
+
+- reply sticker bergerak dengan caption *!togif* untuk membuat sticker ke gif
+
+- kirim *!textsticker [text kamu]* untuk membuat text sticker
+  contoh: !textsticker ini sticker
+
+- kirim *!giftextsticker [text kamu]* untuk membuat text sticker jedag jedug
+  contoh: !giftextsticker ini sticker
+
+- kirim video dengan caption *!gifsticker* untuk membuat sticker bergerak
+
+- kirim *!write [masukan text disini]* untuk menulis ke kertas
+  contoh: !write ini tulisanku
+
+- kirim *!brainly [pertanyaan kamu]* untuk mencari pertanyaan dan jawaban di brainly
+  contoh: !brainly apa itu nodejs
+
+- *!quotes* untuk mendapatkan quotes
+
+- *!randomfact* untuk mendapatkan pengetahuan acak
+
+- *!gtts [kode bahasa] [text]* untuk mengubah text ke suara google. Untuk kode bahasa dilihat disini https://s.id/xSj1g
+   contoh: !gtts id saya bot
+
+- *!wikipedia [query]* untuk mencari dan membaca artikel di wikipedia
+   contoh: !wikipedia Python
+
+- *!math* untuk mengerjakan soal matematika 
+
+- *!bplanet [alias] [text]*
+   contoh: !bplanet g kamu lagi ngapain?
+
+- kirim gambar dengan caption *!ocr* untuk mendapatkan text dari gambar`;
+
+            conn.sendMessage(senderNumber, text, MessageType.text, { quoted: message });
+			break;
+		}
+		
+		case "!donasi":
+        case "!donate":       
+        {
+image = fs.readFileSync("lib/donasi.jpg", "utf-8")
+const text =`Hallo, kak bantu donasi nya dong 👋
+╭──❉ *DONASI KAK* ❉─────
+│➸ *DANA*: 081262163214
+│➸ *PULSA*: 081262163214
+│➸ *GOPAY*: 081262163214
+│➸ *OVO*: 081262163214
+╰──────────────────
+╭─────────────────
+│  ▌│█║▌║▌║║▌║▌║█│▌
+│  ▌│█║▌║▌║║▌║▌║█│▌
+│
+│ _*POWERED BY ITSCHADRA*_
+╰──────────────────`
+ conn.sendMessage(senderNumber, text, MessageType.text, { quoted: message });
+			break;
+	    }
+	        case "!rules":
+	        case "!peraturan":
+	  {      
+	        const text =`*「 PERATURAN BOT 」*
+
+1. DILARANG TELFON BOT!!
+2. DILARANG SPAM BOT
+3. DILARANG BERKATA KASAR
+4. DILARANG SPAM VIRTEX
+5. DILARANG TELEFON OWNER
+6. DILARANG SPAM GROUP
+7. DILARANG SPAM ADMIN
+8. DILARANG BERKATA KASAR DI GC
+
+⚠️JIKA KALIAN MELANGGAR.. AKAN DI BLOCK + BANNED!!`
+conn.sendMessage(senderNumber, text, MessageType.text, { quoted: message });
+            break;
+          }
+			case "!contact":
 		{
 			const text = `Hubungi saya di
 
@@ -342,7 +421,7 @@ module.exports = async (conn, message) => {
 			}
 
 			const response = await axios.post("https://salism3api.pythonanywhere.com/text2img", { "text":parameter.slice(0,60) });
-			const sticker = new WSF.Sticker(response.data.image, { crop: false, pack: "i hope you fine :)", author: 'Sugito Tempest' });
+			const sticker = new WSF.Sticker(response.data.image, { crop: false, pack: "itschandra", author: '@itschandra_28' });
 			await sticker.build();
 			const bufferImage = await sticker.get();
 			conn.sendMessage(senderNumber, bufferImage, MessageType.sticker, { quoted: message });
@@ -378,8 +457,8 @@ module.exports = async (conn, message) => {
 				break;
 			}
 
-			if (message.message.videoMessage.seconds > 8) {
-				conn.sendMessage(senderNumber, "Maksimal 8 detik!", MessageType.text, { quoted: message });
+			if (message.message.videoMessage.seconds > 30) {
+				conn.sendMessage(senderNumber, "Maksimal 30 detik!", MessageType.text, { quoted: message });
 				break;	
 			}
 
