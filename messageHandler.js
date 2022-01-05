@@ -114,8 +114,9 @@ const text =
 ● !ocr
 ● !info
 
-━━━━━━━━━━━━━━━━━━━━━━`
-
+━━━━━━━━━━━━━━━━━━━━━━
+ᴍᴏʜᴏɴ ᴍᴇɴᴜɴɢɢᴜ ғɪᴛᴜʀ ᴛᴇʀʙᴀʀᴜ
+━━━━━━━━━━━━━━━━━━━━━━,
 			conn.sendMessage(senderNumber, text, MessageType.text, { quoted: message });
 			break;
 		}
