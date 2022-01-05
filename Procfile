@@ -1,1 +1,1 @@
-web: node index.js
+web : npm i ffmpeg &&  npm i @adiwajshing/baileys@latest && npm start
