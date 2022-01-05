@@ -178,6 +178,7 @@ const text =
 		
 		case "!donasi":
         case "!donate":
+{
 const text =`Hallo, kak bantu donasi nya dong 👋
 ╭──❉ *DONASI KAK* ❉─────
 │➸ *DANA*: 081262163214
