@@ -116,7 +116,7 @@ const text =
 
 ━━━━━━━━━━━━━━━━━━━━━━
 ᴍᴏʜᴏɴ ᴍᴇɴᴜɴɢɢᴜ ғɪᴛᴜʀ ᴛᴇʀʙᴀʀᴜ
-━━━━━━━━━━━━━━━━━━━━━━,
+━━━━━━━━━━━━━━━━━━━━━━`
 			conn.sendMessage(senderNumber, text, MessageType.text, { quoted: message });
 			break;
 		}
