@@ -100,26 +100,21 @@ const text =
 
 ● !menu
 ● !bantuan
-● !sticker <reply image>
+● !sticker
 ● !contact 
-● !stickernobg {erorr}
 ● !pdf 
 ● !toimg
 ● !togif
 ● !gifsticker
-● !textsticker {erorr}
-● !giftextsticker
-● !write
 ● !brainly
 ● !quotes
 ● !randomfact
-● !gtts [kode bahasa] [text]
-● !wikipedia [query]
-● !math
 ● !donasi
 ● !bplanet
 ● !ocr
-● !info`
+● !info
+
+━━━━━━━━━━━━━━━━━━━━━━`
 
 			conn.sendMessage(senderNumber, text, MessageType.text, { quoted: message });
 			break;
@@ -217,9 +212,8 @@ conn.sendMessage(senderNumber, text, MessageType.text, { quoted: message });
 		{
 			const text = `Hubungi saya di
 
-- Facebook: fb.me/salismazaya
-- Telegram: t.me/salismiftah
-- Email: salismazaya@gmail.com`;
+- Facebook: fb.me/dit321
+- Email: rajaadityachandra@gmail.com`;
 			conn.sendMessage(senderNumber, text, MessageType.text, { quoted: message });
 			break;
 		}
@@ -462,7 +456,7 @@ conn.sendMessage(senderNumber, text, MessageType.text, { quoted: message });
 			}
 
 			const imagePath = await conn.downloadAndSaveMediaMessage(message, Math.floor(Math.random() * 1000000));
-			const sticker = new WSF.Sticker("./" + imagePath, { animated: true, pack: "i hope you fine :)", author: 'Sugito Tempest' });
+			const sticker = new WSF.Sticker("./" + imagePath, { animated: true, pack: "itschandra :)", author: '@itschandra_28' });
 			await sticker.build();
 			fs.unlinkSync(imagePath);
 			const bufferImage = await sticker.get();
