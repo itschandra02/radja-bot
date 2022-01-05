@@ -1,4 +1,4 @@
-// https://github.com/itschandra02/radja-bot
+// https://github.com/salismazaya/whatsapp-bot
 
 const fs = require("fs");
 const axios = require("axios");
@@ -177,8 +177,9 @@ const text =
 		}
 		
 		case "!donasi":
-        case "!donate":
-{
+        case "!donate":       
+        {
+image = fs.readFileSync("lib/donasi.jpg", "utf-8")
 const text =`Hallo, kak bantu donasi nya dong 👋
 ╭──❉ *DONASI KAK* ❉─────
 │➸ *DANA*: 081262163214
