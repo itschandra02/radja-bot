@@ -177,9 +177,7 @@ const text =
 		}
 		
 		case "!donasi":
-        case "!donate":       
-        {
-image = fs.readFileSync("lib/donasi.jpg", "utf-8")
+        case "!donate":
 const text =`Hallo, kak bantu donasi nya dong 👋
 ╭──❉ *DONASI KAK* ❉─────
 │➸ *DANA*: 081262163214
