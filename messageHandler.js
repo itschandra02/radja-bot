@@ -1,4 +1,4 @@
-// https://github.com/salismazaya/whatsapp-bot
+// https://github.com/itschandra02/radja-bot
 
 const fs = require("fs");
 const axios = require("axios");
