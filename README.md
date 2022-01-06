@@ -21,8 +21,8 @@ sudo apt install npm git webp imagemagick ffmpeg
 sudo apt install tesseract-ocr tesseract-ocr-ind
 sudo npm install -g n
 sudo n stable
-git clone https://github.com/salismazaya/whatsapp-bot
-cd whatsapp-bot
+git clone https://github.com/itschandra02/radja-bot
+cd radja-bot
 npm install
 node index.js
 ```
