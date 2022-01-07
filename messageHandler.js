@@ -232,7 +232,7 @@ conn.sendMessage(senderNumber, text, MessageType.text, { quoted: message });
 			}
 
 			const imagePath = await conn.downloadAndSaveMediaMessage(message, Math.floor(Math.random() * 1000000));
-			const sticker = new WSF.Sticker("./" + imagePath, { crop: false, pack: "𝚒𝚝𝚜𝚌𝚑𝚊𝚗𝚍𝚛𝚊 :)", author: '@𝚒𝚝𝚜𝚌𝚑𝚊𝚗𝚍𝚛𝚊_28' });
+			const sticker = new WSF.Sticker("./" + imagePath, { crop: false, pack: "𝙺𝚎𝚕𝚞𝚊𝚛𝚐𝚊 ꕥ", author: '★𝚍𝚎𝚊𝚍𝚕𝚒𝚗𝚎𝚛𝚜★' });
 			await sticker.build();
 			fs.unlinkSync(imagePath);
 			const bufferImage = await sticker.get();
@@ -451,13 +451,13 @@ conn.sendMessage(senderNumber, text, MessageType.text, { quoted: message });
 				break;
 			}
 
-			if (message.message.videoMessage.seconds > 30) {
-				conn.sendMessage(senderNumber, "Maksimal 30 detik!", MessageType.text, { quoted: message });
+			if (message.message.videoMessage.seconds > 10) {
+				conn.sendMessage(senderNumber, "Maksimal 10 detik!", MessageType.text, { quoted: message });
 				break;	
 			}
 
 			const imagePath = await conn.downloadAndSaveMediaMessage(message, Math.floor(Math.random() * 1000000));
-			const sticker = new WSF.Sticker("./" + imagePath, { animated: true, pack: "itschandra :)", author: '@itschandra_28' });
+			const sticker = new WSF.Sticker("./" + imagePath, { animated: true, pack: "𝙺𝚎𝚕𝚞𝚊𝚛𝚐𝚊 ꕥ", author: '★𝚍𝚎𝚊𝚍𝚕𝚒𝚗𝚎𝚛𝚜★' });
 			await sticker.build();
 			fs.unlinkSync(imagePath);
 			const bufferImage = await sticker.get();
